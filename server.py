@@ -14,6 +14,7 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent
 STATIC = {'index.html', 'style.css', 'data.js', 'core.js', 'app.js', 'buddy.js',
+          'reading-data.js', 'reading-vocabulary.js', 'dictionary.js', 'lexicon.js', 'reading.js',
           'sw.js', 'manifest.webmanifest', 'icon.svg', 'icon-192.png', 'icon-512.png'}
 TYPES = {'.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8',
          '.js': 'application/javascript; charset=utf-8', '.webmanifest': 'application/manifest+json',
