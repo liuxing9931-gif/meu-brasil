@@ -15,3 +15,5 @@ License: https://www.pexels.com/license/
 - ocean.jpg: https://www.pexels.com/photo/serene-ocean-horizon-with-calm-waters-29389351/
 
 - review-ocean.jpg: https://www.pexels.com/photo/waves-in-calm-blue-sea-19203170/
+
+- review-turquoise.jpg: https://www.pexels.com/photo/aerial-view-of-turquoise-ocean-water-28408349/

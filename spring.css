@@ -50,3 +50,4 @@ body[data-page=reading] .reading-grid .reading-card{padding:0;overflow:hidden;bo
 @media(max-width:760px){.reading-card .reading-cover{height:140px}.reading-card .reading-card-body{padding:18px}}
 body[data-page=review] .empty-state,body[data-page=review] .flashcard{background-position:center 85%;background-image:linear-gradient(110deg,#ffffffe8,#ffffffcf 55%,#ffffffa8),url('./assets/scenes/ocean.jpg')}
 body[data-page=review] .empty-state{background:linear-gradient(110deg,#f5fcfae0,#f5fcfad4 55%,#edf9f6b8),url('./assets/scenes/review-ocean.jpg') center/cover}
+body[data-page=review] .empty-state{background:linear-gradient(110deg,#e4f8f1b8,#f2fcf5cc 50%,#dff6ef9e),url('./assets/scenes/review-turquoise.jpg') center/cover}body[data-page=review] .empty-state p{color:#45665d}
