@@ -13,3 +13,5 @@ License: https://www.pexels.com/license/
 
 - sky.jpg: https://www.pexels.com/photo/blue-sky-and-white-clouds-12919436/
 - ocean.jpg: https://www.pexels.com/photo/serene-ocean-horizon-with-calm-waters-29389351/
+
+- review-ocean.jpg: https://www.pexels.com/photo/waves-in-calm-blue-sea-19203170/
