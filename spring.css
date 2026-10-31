@@ -51,3 +51,6 @@ body[data-page=reading] .reading-grid .reading-card{padding:0;overflow:hidden;bo
 body[data-page=review] .empty-state,body[data-page=review] .flashcard{background-position:center 85%;background-image:linear-gradient(110deg,#ffffffe8,#ffffffcf 55%,#ffffffa8),url('./assets/scenes/ocean.jpg')}
 body[data-page=review] .empty-state{background:linear-gradient(110deg,#f5fcfae0,#f5fcfad4 55%,#edf9f6b8),url('./assets/scenes/review-ocean.jpg') center/cover}
 body[data-page=review] .empty-state,body[data-page=review] .flashcard{background:linear-gradient(110deg,#eef9f4c9,#f5fcf7d4 50%,#edf8f4b3),url('./assets/scenes/review-clouds.jpg') center/cover}body[data-page=review] .empty-state p{color:#45665d}
+/* Keep learning text on the continuous sky photograph. */
+body[data-page=review] .flashcard .flashcard-top,body[data-page=review] .flashcard .answer,body[data-page=practice] .practice-panel .reference-answer{background:transparent!important;border:0;box-shadow:none;backdrop-filter:none}
+body[data-page=review] .flashcard .flashcard-top,body[data-page=review] .flashcard .en,body[data-page=practice] .reference-answer .en{color:#45665d}
