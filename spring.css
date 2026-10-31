@@ -54,3 +54,7 @@ body[data-page=review] .empty-state,body[data-page=review] .flashcard{background
 /* Keep learning text on the continuous sky photograph. */
 body[data-page=review] .flashcard .flashcard-top,body[data-page=review] .flashcard .answer,body[data-page=practice] .practice-panel .reference-answer{background:transparent!important;border:0;box-shadow:none;backdrop-filter:none}
 body[data-page=review] .flashcard .flashcard-top,body[data-page=review] .flashcard .en,body[data-page=practice] .reference-answer .en{color:#45665d}
+body[data-page=stats] .calendar button[data-intensity="0"]{background:transparent;border-color:transparent;box-shadow:none}
+body[data-page=search] .sentence-actions .saved{background:transparent;color:inherit}
+.page-tools{display:flex;justify-content:flex-end;gap:12px;margin-bottom:16px}.lesson-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.word-title-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.word-title-row h2{margin:16px 0;overflow-wrap:anywhere}.word-title-row .copy-word{font-size:13px;white-space:nowrap;padding:6px 10px;border:1px solid #b9d9ce;border-radius:99px;color:#167d83}.word-title-row .copy-word:hover{background:#e5f4ee}
+body[data-page=home] #app>.page-tools{grid-column:1/-1;margin-bottom:0}
