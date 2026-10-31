@@ -17,3 +17,5 @@ License: https://www.pexels.com/license/
 - review-ocean.jpg: https://www.pexels.com/photo/waves-in-calm-blue-sea-19203170/
 
 - review-turquoise.jpg: https://www.pexels.com/photo/aerial-view-of-turquoise-ocean-water-28408349/
+
+- review-clouds.jpg: https://www.pexels.com/photo/white-clouds-and-blue-sky-4502113/
