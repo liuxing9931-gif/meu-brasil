@@ -1,4 +1,4 @@
-const CACHE='fala-v1.5.0';
+const CACHE='fala-v1.5.1';
 const FILES=['./','./index.html','./style.css','./spring.css','./data.js','./core.js','./app.js','./buddy.js','./reading-data.js','./reading-vocabulary.js','./dictionary.js','./lexicon.js','./verb-data.js','./verbs.js','./reading.js','./manifest.webmanifest','./icon.svg','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)));self.skipWaiting();});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('fala-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
