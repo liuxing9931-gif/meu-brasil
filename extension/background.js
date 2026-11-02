@@ -22,9 +22,14 @@ async function ready(tabId){
 async function sync(bundle){
  const tab=await siteTab();await ready(tab.id);
  await chrome.scripting.executeScript({target:{tabId:tab.id},world:'MAIN',files:['sync-model.js','pwa-bridge.js']});
- const [result]=await chrome.scripting.executeScript({target:{tabId:tab.id},world:'MAIN',func:events=>{
-  try{return {ok:true,value:window.FalaSidepanelBridge.sync(events)};}catch(e){return {ok:false,error:e.message};}
- },args:[bundle.pending]});
+ const addedIds=new Set(bundle.pending.filter(e=>e.kind==='add').map(e=>e.card.id));
+ const importedIds=bundle.source==='导入的 Fala 备份'?bundle.state.cards.filter(c=>!addedIds.has(c.id)).map(c=>c.id):[];
+ const [result]=await chrome.scripting.executeScript({target:{tabId:tab.id},world:'MAIN',func:(events,importedIds)=>{
+  try{
+   if(importedIds.length){const existing=new Set(window.FalaSidepanelBridge.sync([]).state.cards.map(c=>c.id));if(importedIds.some(id=>!existing.has(id)))throw Error('导入的收藏与这个 Chrome 中的 Fala 不一致。请先在这个 Chrome 的 Fala 网站导入同一份备份，再同步。侧栏原数据已保留。');}
+   return {ok:true,value:window.FalaSidepanelBridge.sync(events)};
+  }catch(e){return {ok:false,error:e.message};}
+ },args:[bundle.pending,importedIds]});
  if(!result?.result?.ok)throw Error(result?.result?.error||'无法读取 Fala 学习记录，请检查网站是否正常打开。');
  bundle=FalaSync.mergeSnapshot(bundle,result.result.value);bundle.source='Fala 网站';return write(bundle);
 }

@@ -70,6 +70,11 @@ const message=(type,data={})=>new Promise(resolve=>listener({type,...data},{id:'
  // Import cannot erase unsynced grades, and unrelated source pages are rejected.
  await message('ADD_CARD',{pt:'prazo',zh:'期限',en:'deadline'});
  response=await message('IMPORT',{state:fixture});assert.equal(response.ok,false);
+ await message('SYNC');
+ const imported={...fixture,cards:[{...fixture.cards[0],id:'from-another-profile'}]};
+ response=await message('IMPORT',{state:imported});assert.equal(response.ok,true);
+ response=await message('SYNC');assert.equal(response.ok,false);assert.match(response.error,/不一致/);
+ assert.equal(store.falaSidepanel.state.cards[0].id,'from-another-profile');
  site.location.pathname='/other-project/';response=await message('SYNC');assert.equal(response.ok,false);
  console.log('Background and bridge transaction tests passed');
 })().catch(e=>{console.error(e);process.exitCode=1});

@@ -1,20 +1,25 @@
-# Fala · Chrome 随身复习（预览版 0.1）
+# Fala · Chrome 随身复习 0.2.0 · 简约版
 
-这是独立的 Chrome Manifest V3 侧栏扩展。原 Fala 页面、课程、阅读、已存学习数据均未修改。本分支只提供预览与可选安装包，不会替用户安装或开启真实网站同步。
+这是独立的 Chrome Manifest V3 侧栏扩展。原 Fala 页面、课程、阅读、已存学习数据均未修改。本版参考 Fala 的圆角卡片、胶囊控件和简洁排版，改用米白、炭灰和低饱和灰绿，无照片背景，图标为随包 SVG 线条。安装包可在 Chrome 开发者模式中加载；程序不会自动安装或自动连接真实网站。
 
 ## 先预览，不需要安装
 
-下载已打包的 `fala-sidepanel-preview.zip`，解压后双击 **preview.html**。右侧界面可以切换全部/单词/短语/句子、查看答案、四档评分、查词及查看动词变位。背景工作页面为静态示意，不读取工作内容。也可直接打开 `sidepanel.html` 看窄侧栏。
+下载已打包的 `fala-sidepanel-0.2.0.zip`，解压后双击 **preview.html**。右侧界面可以切换全部/单词/短语/句子、查看答案、四档评分、查词及查看动词变位。背景工作页面为静态示意，不读取工作内容。也可直接打开 `sidepanel.html` 看窄侧栏。
 
 浏览器模式始终标记“预览模式”，使用内存中的示例收藏。它不连接真实 Fala，不读写 Chrome 插件存储、不导入或导出真实学习数据，刷新后示例重置。预览不是安装，也不能证明真实设备语音包存在。
 
-## 可选安装（决定安装后再做）
+## 安装到 Chrome（不需要改 GitHub Pages）
 
-1. 在 Fala 的学习设置中先导出 JSON 学习备份。
-2. 解压插件包，确认文件夹内直接有 `manifest.json`、`sidepanel.html`、`background.js`、`shared/` 等。
-3. Chrome 地址栏打开 `chrome://extensions`，开启“开发者模式”，点击“加载已解压的扩展程序”，选择上一步文件夹。需要 Chrome 116 或更新版本；其他 Chromium 浏览器是否支持 Side Panel API 需另行确认。
-4. 在浏览器扩展菜单中将 Fala 固定到工具栏。点击图标打开侧栏，使用 Chrome 侧栏右上角的原生 × 随时关闭。
-5. 默认静音。设置中可选择“显示答案后自动朗读”、语速和设备的巴葡声音。没有 pt-BR 语音时会提示，可安装系统语音包后使用。关闭侧栏、隐藏页面或评分时会停止旧声音。
+1. 先在原 Fala 的学习设置里导出 JSON 备份。使用平时存放学习数据的同一个 Chrome 用户配置。
+2. 下载 `fala-sidepanel-0.2.0.zip` 并**完整解压**到固定文件夹，例如 `D:\Fala侧栏`。不要在压缩包预览中选择文件，也不要只复制 HTML。保留 `shared/` 等全部目录。
+3. 在 Chrome 地址栏输入 `chrome://extensions`，打开右上角“开发者模式”。
+4. 点击“加载已解压的扩展程序”，选择**直接包含 `manifest.json` 的文件夹**，不是 ZIP 文件、不是 `shared` 文件夹，也不是整个 GitHub 仓库文件夹。看到“Fala · 随身复习 0.2.0”即表示已加载。需要 Chrome 116 或更新版本。
+5. 点击 Chrome 工具栏的拼图图标，将 Fala 固定。点击 Fala 图标打开右侧栏；用 Chrome 侧栏右上角原生 × 随时关闭。安装后初次为空是正常的，示例数据不会混入你的收藏。
+6. 先关闭桌面 Fala 应用，再用同一 Chrome 打开 Fala 网站，只保留一个 Fala 网页。在侧栏点击“从 Fala 同步”，检查收藏数，再做一次评分并再次同步确认。同步后可以关闭 Fala 标签页，侧栏继续使用本地数据。
+7. 若原 PWA 在 Edge 或另一个 Chrome 用户配置中，先把第 1 步的 JSON 备份导入**当前 Chrome 中的 Fala 网站**，再同步插件。也可先在插件设置里导入备份离线复习；首次与网站同步前，两边需有同一份收藏。若不一致会停止并提示，保留侧栏数据。
+8. 默认静音，点击右上角喇叭可开启自动朗读；齿轮设置里可调整语速、声音和导入导出。未装 pt-BR 语音包时会提示，不影响文字复习。
+
+**保留解压文件夹，不要安装后删除。** 开发者模式从该目录加载文件。以后更新先同步或导出侧栏备份，再将新版文件覆盖到同一目录，在 `chrome://extensions` 点击该插件的刷新按钮。不要先卸载或换目录重装，以免丢失未同步数据。若已经试装 0.1，本版保持存储格式兼容，按同目录更新即可。
 
 不需要将本分支合并到 GitHub Pages，也不需要 API Key、AI 服务或服务器。卸载插件会清除它的本地数据；尚未同步的评分请先导出保留。
 
@@ -43,7 +48,7 @@
 在仓库根目录运行（Python 3 标准库，无需 npm）：
 
 ```bash
-python3 tools/build_extension.py --out /tmp/fala-sidepanel-preview --zip /tmp/fala-sidepanel-preview.zip
+python3 tools/build_extension.py --out /tmp/fala-sidepanel-0.2.0 --zip /tmp/fala-sidepanel-0.2.0.zip
 python3 -m unittest discover -s tests -p 'test_extension*.py' -v
 ```
 
