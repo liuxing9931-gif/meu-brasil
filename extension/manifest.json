@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Fala · 随身复习",
+  "description": "在 Chrome 侧栏复习自己的巴葡收藏；本地保存，手动与 Fala 合并进度。",
+  "version": "0.1.0",
+  "minimum_chrome_version": "116",
+  "permissions": ["sidePanel", "storage", "scripting"],
+  "host_permissions": ["https://liuxing9931-gif.github.io/*"],
+  "background": {"service_worker": "background.js"},
+  "side_panel": {"default_path": "sidepanel.html"},
+  "action": {"default_title": "打开 Fala 随身复习"},
+  "icons": {"128": "shared/icon-192.png"},
+  "content_security_policy": {"extension_pages": "script-src 'self'; object-src 'none'"}
+}
